@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/images">
+        <file>NanoImage/use1043_h.png</file>
+    </qresource>
+</RCC>
