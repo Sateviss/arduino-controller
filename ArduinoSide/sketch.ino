@@ -1,16 +1,11 @@
-
-#define BUTTON_0 8
-#define BUTTON_1 10
-#define BUTTON_2 12
-
 // delay between polls
 #define DELAY 1000
 
 // blink length
-#define BLINK_T 50000
+#define BLINK_T 20000
 
-const int BUTTONS[] = {BUTTON_0, BUTTON_1, BUTTON_2};
-const int BUTTON_COUNT = 3;
+const int BUTTONS[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+const int BUTTON_COUNT = 11;
 
 bool BUTTON_STATES[BUTTON_COUNT];
 
@@ -55,15 +50,13 @@ void check_buttons()
     bool prev_state = BUTTON_STATES[i];
     bool cur_state = digitalRead(BUTTONS[i]);
 
+    Serial.write(BUTTONS[i]);
     if (prev_state != cur_state)
     {
       // if button state changes to HIGH (aka keyDown)
       // send the button number via serial and set up the blink
-      if (cur_state == HIGH)
-      {
-        Serial.write('0'+i);
-        start_blink();
-      }
+      Serial.write(cur_state);
+      start_blink();
       BUTTON_STATES[i] = cur_state;
     }
   }
