@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
-    <height>598</height>
+    <width>949</width>
+    <height>799</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,314 +32,455 @@
      <height>16777215</height>
     </size>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
-    <property name="spacing">
-     <number>4</number>
-    </property>
-    <property name="leftMargin">
-     <number>4</number>
-    </property>
-    <property name="topMargin">
-     <number>4</number>
-    </property>
-    <property name="rightMargin">
-     <number>4</number>
-    </property>
-    <property name="bottomMargin">
-     <number>4</number>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QFrame" name="frameSelection">
-      <property name="minimumSize">
-       <size>
-        <width>300</width>
-        <height>560</height>
-       </size>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>300</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <widget class="QFrame" name="frameArduinoImage">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>300</width>
-         <height>560</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-image: url(:/new/images/NanoImage/use1043_h.png) 0 0 0 0 stretch stretch;
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QFrame" name="frameSelection">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>560</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <widget class="QFrame" name="frameArduinoImage">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>300</width>
+             <height>560</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/new/images/Resourses/nano_h.png) 0 0 0 0 stretch stretch;
 </string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Plain</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD12">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>455</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D12</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD11">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>428</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D11</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD10">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>401</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D10</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD9">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>374</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D9</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD8">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>347</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D8</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD7">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>320</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D7</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD6">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>293</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D6</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD5">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>266</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D5</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD4">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>239</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D4</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD3">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>212</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D3</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="buttonD2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>185</y>
-         <width>50</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D2</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frameEdit">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Key combo:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>Apply</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Mode:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="comboBox">
-         <property name="currentText">
-          <string>Simple</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Simple</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD12">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>455</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D12</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD11">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>428</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D11</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD10">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>401</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D10</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD9">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>374</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D9</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD8">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>347</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D8</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD7">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>320</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D7</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD6">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>293</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D6</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD5">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>266</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D5</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>239</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D4</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>212</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D3</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="buttonD2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>185</y>
+             <width>50</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>D2</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frameEdit">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
           </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Advanced</string>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
           </property>
-         </item>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="styleSheet">
-          <string notr="true">font: 16pt &quot;Noto Sans&quot;;</string>
-         </property>
-         <property name="text">
-          <string>D4:</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::AutoText</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="2">
-        <widget class="QTextEdit" name="textEdit">
-         <property name="lineWidth">
-          <number>2</number>
-         </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="4" column="0">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetMaximumSize</enum>
+             </property>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Action:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="3">
+              <widget class="QTextEdit" name="textEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Fira Code</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="cursor" stdset="0">
+                <cursorShape>IBeamCursor</cursorShape>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="lineWidth">
+                <number>2</number>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hello world in &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;HTML&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-         </property>
-         <property name="placeholderText">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>[None]</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Reset</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Fira Code'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
+               <property name="placeholderText">
+                <string>Your Python 3 script goes here...</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="comboBox">
+               <property name="currentText">
+                <string>Run a script</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Run a script</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Press keys</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>Key combination:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="minimumSize">
+                <size>
+                 <width>128</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Reset</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>[None]</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QLabel" name="label">
+               <property name="styleSheet">
+                <string notr="true">font: 16pt &quot;Noto Sans&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Editing pin D4:</string>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::AutoText</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Act on:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="2">
+              <widget class="QPushButton" name="pushButton">
+               <property name="minimumSize">
+                <size>
+                 <width>128</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
+               <property name="text">
+                <string>Apply</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="minimumSize">
+                <size>
+                 <width>128</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>128</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
+               <property name="text">
+                <string>Scripting help</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="comboBox_2">
+               <property name="minimumSize">
+                <size>
+                 <width>256</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>256</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Any state change</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>LOW to HIGH</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>HIGH to LOW</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="3">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#909090;&quot;&gt;Everything's dandy!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::RichText</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTextBrowser" name="textBrowser"/>
      </widget>
     </item>
    </layout>
@@ -349,14 +490,32 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>647</width>
-     <height>28</height>
+     <width>949</width>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuConfiguration">
+     <property name="title">
+      <string>Configuration</string>
+     </property>
+     <addaction name="actionSave_2"/>
+     <addaction name="actionSave_as_2"/>
+     <addaction name="actionLoad_2"/>
+    </widget>
+    <widget class="QMenu" name="menuScript">
+     <property name="title">
+      <string>Script</string>
+     </property>
+     <addaction name="actionSave_4"/>
+     <addaction name="actionSave_as_3"/>
+     <addaction name="actionLoad_5"/>
+    </widget>
+    <addaction name="menuConfiguration"/>
+    <addaction name="menuScript"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -379,15 +538,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionPort"/>
     <addaction name="menuType"/>
    </widget>
-   <widget class="QMenu" name="menuScript">
-    <property name="title">
-     <string>Script</string>
-    </property>
-    <addaction name="actionSave_to_file"/>
-    <addaction name="actionLoad_from_file"/>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuScript"/>
    <addaction name="menuConnection"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -455,6 +606,61 @@ p, li { white-space: pre-wrap; }
   <action name="actionLoad_from_file">
    <property name="text">
     <string>Load from file</string>
+   </property>
+  </action>
+  <action name="actionLoad_configuration">
+   <property name="text">
+    <string>Save...</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load...</string>
+   </property>
+  </action>
+  <action name="actionSave_2">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as_2">
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+  </action>
+  <action name="actionLoad_2">
+   <property name="text">
+    <string>Load...</string>
+   </property>
+  </action>
+  <action name="actionSave_3">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_4">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as_3">
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+  </action>
+  <action name="actionLoad_3">
+   <property name="text">
+    <string>Load./..</string>
+   </property>
+  </action>
+  <action name="actionLoad_4">
+   <property name="text">
+    <string>Load ...</string>
+   </property>
+  </action>
+  <action name="actionLoad_5">
+   <property name="text">
+    <string>Load...</string>
    </property>
   </action>
  </widget>
