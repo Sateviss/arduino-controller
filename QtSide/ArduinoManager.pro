@@ -6,6 +6,9 @@
 
 QT       += core gui widgets
 
+QT += serialport
+
+
 TARGET = ArduinoManager
 TEMPLATE = app
 
@@ -24,10 +27,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    pinbutton.cpp \
+    portreader.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    pinbutton.h \
+    portreader.h
 
 FORMS += \
         mainwindow.ui

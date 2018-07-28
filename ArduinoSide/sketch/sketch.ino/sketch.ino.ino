@@ -50,14 +50,15 @@ void check_buttons()
     bool prev_state = BUTTON_STATES[i];
     bool cur_state = digitalRead(BUTTONS[i]);
 
-    Serial.write(BUTTONS[i]);
     if (prev_state != cur_state)
     {
+      Serial.write('A'+BUTTONS[i]);
       // if button state changes to HIGH (aka keyDown)
       // send the button number via serial and set up the blink
-      Serial.write(cur_state);
+      Serial.write('0'+cur_state);
       start_blink();
       BUTTON_STATES[i] = cur_state;
+      Serial.write('\n');
     }
   }
 }

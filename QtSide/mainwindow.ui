@@ -86,7 +86,7 @@
             <enum>QFrame::Plain</enum>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD12">
+          <widget class="PinButton" name="pinButtonD12">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -99,7 +99,7 @@
             <string>D12</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD11">
+          <widget class="PinButton" name="pinButtonD11">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -112,7 +112,7 @@
             <string>D11</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD10">
+          <widget class="PinButton" name="pinButtonD10">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -125,7 +125,7 @@
             <string>D10</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD9">
+          <widget class="PinButton" name="pinButtonD9">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -138,7 +138,7 @@
             <string>D9</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD8">
+          <widget class="PinButton" name="pinButtonD8">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -151,7 +151,7 @@
             <string>D8</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD7">
+          <widget class="PinButton" name="pinButtonD7">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -164,7 +164,7 @@
             <string>D7</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD6">
+          <widget class="PinButton" name="pinButtonD6">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -177,7 +177,7 @@
             <string>D6</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD5">
+          <widget class="PinButton" name="pinButtonD5">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -190,7 +190,7 @@
             <string>D5</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD4">
+          <widget class="PinButton" name="pinButtonD4">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -203,7 +203,7 @@
             <string>D4</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD3">
+          <widget class="PinButton" name="pinButtonD3">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -216,7 +216,7 @@
             <string>D3</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="buttonD2">
+          <widget class="PinButton" name="pinButtonD2">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -246,7 +246,7 @@
               <enum>QLayout::SetMaximumSize</enum>
              </property>
              <item row="3" column="0">
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="labelActionType">
                <property name="text">
                 <string>Action:</string>
                </property>
@@ -256,7 +256,7 @@
               </widget>
              </item>
              <item row="5" column="0" colspan="3">
-              <widget class="QTextEdit" name="textEdit">
+              <widget class="QTextEdit" name="editScript">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -294,7 +294,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QComboBox" name="comboBox">
+              <widget class="QComboBox" name="comboBoxActionType">
                <property name="currentText">
                 <string>Run a script</string>
                </property>
@@ -324,7 +324,7 @@ p, li { white-space: pre-wrap; }
               </spacer>
              </item>
              <item row="4" column="0">
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="labelKeyCombination">
                <property name="enabled">
                 <bool>false</bool>
                </property>
@@ -337,7 +337,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="7" column="1">
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="buttonReset">
                <property name="minimumSize">
                 <size>
                  <width>128</width>
@@ -356,7 +356,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="buttonKeyCombination">
                <property name="enabled">
                 <bool>false</bool>
                </property>
@@ -366,7 +366,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="1" column="0" colspan="3">
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="labelEditing">
                <property name="styleSheet">
                 <string notr="true">font: 16pt &quot;Noto Sans&quot;;</string>
                </property>
@@ -379,7 +379,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="labelActOn">
                <property name="text">
                 <string>Act on:</string>
                </property>
@@ -389,7 +389,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="7" column="2">
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="buttonApply">
                <property name="minimumSize">
                 <size>
                  <width>128</width>
@@ -411,7 +411,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="7" column="0">
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="buttonHelp">
                <property name="minimumSize">
                 <size>
                  <width>128</width>
@@ -433,7 +433,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QComboBox" name="comboBox_2">
+              <widget class="QComboBox" name="comboBoxActon">
                <property name="minimumSize">
                 <size>
                  <width>256</width>
@@ -464,7 +464,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="6" column="0" colspan="3">
-              <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="labelState">
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#909090;&quot;&gt;Everything's dandy!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
@@ -516,6 +516,8 @@ p, li { white-space: pre-wrap; }
     </widget>
     <addaction name="menuConfiguration"/>
     <addaction name="menuScript"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -663,8 +665,20 @@ p, li { white-space: pre-wrap; }
     <string>Load...</string>
    </property>
   </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>PinButton</class>
+   <extends>QPushButton</extends>
+   <header>pinbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
