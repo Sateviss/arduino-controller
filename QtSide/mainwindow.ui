@@ -480,7 +480,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QTextBrowser" name="textBrowser"/>
+      <widget class="ProcessRunner" name="textBrowser"/>
      </widget>
     </item>
    </layout>
@@ -677,6 +677,11 @@ p, li { white-space: pre-wrap; }
    <class>PinButton</class>
    <extends>QPushButton</extends>
    <header>pinbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ProcessRunner</class>
+   <extends>QTextBrowser</extends>
+   <header>processrunner.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

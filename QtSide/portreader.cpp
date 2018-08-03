@@ -4,11 +4,8 @@ PortReader::PortReader(QString portName, int portRate)
 {
     if (portName == "auto")
         portName = PortReader::getPorts()[0];
-    _port = new QSerialPort(portName);
-    _port->setBaudRate(portRate);
-    qDebug()<<"Hi from main thread!";
 
-    WorkerThread* _worker = new WorkerThread(_port);
+    WorkerThread* _worker = new WorkerThread(portName, portRate);
     connect(_worker, &WorkerThread::signalRecieved, this, &PortReader::pinStageChanged);
     _worker->start();
 }
@@ -26,7 +23,6 @@ PortReader::~PortReader()
 {
     _worker->exit();
     _worker->deleteLater();
-    delete _port;
 }
 
 void PortReader::pinStageChanged(int pin, bool newState)

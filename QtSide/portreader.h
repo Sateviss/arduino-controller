@@ -18,19 +18,28 @@ class WorkerThread : public QThread
 
     void run() override {
         _port->open(QIODevice::ReadOnly);
-        QByteArray buffer;
+
+        // Start a loop that reads all incoming communication
         while (true) {
             while (_port->waitForReadyRead(5000))
             {
-                QByteArray readData = _port->readLine(256);
-                qDebug()<<readData;
-                emit signalRecieved(readData[0]-'A', readData[1]-'0');
+                auto lines = QString::fromLocal8Bit(_port->readAll().data()).split("\n");
+                // Log
+
+                qDebug()<<lines;
+                for (auto line : lines)
+                    if (line.length())
+                        emit signalRecieved(line[0].unicode()-'A', line[1].unicode()-'0');
             }
         }
     }
 
 public:
-    WorkerThread(QSerialPort* port) { _port = port; }
+    WorkerThread(QString port_name, int rate)
+    {
+        _port = new QSerialPort(port_name);
+        _port->setBaudRate(rate);
+    }
 
 signals:
     void signalRecieved(int pin, bool state);
@@ -43,7 +52,6 @@ class PortReader : public QObject
 
 private:
     QMap<int, PinButton*> _pinLookup;
-    QSerialPort* _port;
     WorkerThread* _worker;
 
 public:

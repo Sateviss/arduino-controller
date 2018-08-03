@@ -6,11 +6,17 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    reader = new PortReader("/dev/ttyUSB0");
+    reader = new PortReader(QString::fromStdString("/dev/ttyUSB0"), 9600);
     ui->setupUi(this);
+
+    // Read and initialize all pin buttons
     auto pinList = ui->frameSelection->findChildren<PinButton *>();
-    for (int i = 0; i < pinList.length(); i++)
-        reader->connectPin(pinList[i], pinList[i]->getPinNumber());
+    for (auto pin : pinList)
+    {
+        pin->Init(ui->textBrowser);
+        reader->connectPin(pin, pin->getPinNumber());
+
+    }
 }
 
 MainWindow::~MainWindow()
