@@ -53,4 +53,4 @@ DISTFILES +=
 RESOURCES += \
     arduinoscheme.qrc
 
-QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../venv/ $${OUT_PWD}/)
+QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../venv $${OUT_PWD})

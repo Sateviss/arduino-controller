@@ -1,7 +1,9 @@
-#include "pinbutton.h"
 #include <QDebug>
 #include <QColor>
 #include <QFile>
+
+#include "mainwindow.h"
+#include "pinbutton.h"
 
 int PinButton::getPinNumber() { return _pinNumber; }
 
@@ -40,11 +42,20 @@ void PinButton::newPinState(bool newState)
     this->runScript();
 }
 
-void PinButton::Init(ProcessRunner *output)
+void PinButton::Init(ProcessRunner *output, QMainWindow *window)
 {
-    auto kek = this->objectName();
+    connect(this, &PinButton::pinSelected, (MainWindow*)window, &MainWindow::pinSelected);
     _terminalOutput = output;
     _pinName = this->objectName().mid(9);
     _pinNumber = _pinName.mid(1).toInt();
 }
 
+void PinButton::mousePressEvent(QMouseEvent *e)
+{
+    if (e->button() == Qt::MouseButton::LeftButton)
+    {
+        emit pinSelected(this);
+    }
+    QPushButton::mousePressEvent(e);
+    e->accept();
+}

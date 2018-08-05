@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include "portreader.h"
+#include "pinbutton.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
+    bool unsavedChanges;
     PortReader* reader;
 
 public:
@@ -23,6 +25,9 @@ public:
 
 private slots:
     void on_actionPort_hovered();
+
+public slots:
+    void pinSelected(PinButton *pin);
 
 private:
     Ui::MainWindow *ui;

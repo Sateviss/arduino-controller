@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>949</width>
-    <height>799</height>
+    <width>872</width>
+    <height>794</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -241,239 +241,244 @@
           </property>
           <layout class="QGridLayout" name="gridLayout">
            <item row="4" column="0">
-            <layout class="QGridLayout" name="gridLayout_2">
-             <property name="sizeConstraint">
-              <enum>QLayout::SetMaximumSize</enum>
+            <widget class="QFrame" name="">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
              </property>
-             <item row="3" column="0">
-              <widget class="QLabel" name="labelActionType">
-               <property name="text">
-                <string>Action:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0" colspan="3">
-              <widget class="QTextEdit" name="editScript">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Fira Code</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="cursor" stdset="0">
-                <cursorShape>IBeamCursor</cursorShape>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="lineWidth">
-                <number>2</number>
-               </property>
-               <property name="html">
-                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+             <layout class="QGridLayout" name="gridLayout_2">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMaximumSize</enum>
+              </property>
+              <item row="3" column="0">
+               <widget class="QLabel" name="labelActionType">
+                <property name="text">
+                 <string>Action:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0" colspan="3">
+               <widget class="QTextEdit" name="editScript">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Fira Code</family>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="cursor" stdset="0">
+                 <cursorShape>IBeamCursor</cursorShape>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="lineWidth">
+                 <number>2</number>
+                </property>
+                <property name="html">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Fira Code'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="textInteractionFlags">
-                <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-               </property>
-               <property name="placeholderText">
-                <string>Your Python 3 script goes here...</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QComboBox" name="comboBoxActionType">
-               <property name="currentText">
-                <string>Run a script</string>
-               </property>
-               <item>
-                <property name="text">
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Fira Code'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+                </property>
+                <property name="placeholderText">
+                 <string>Your Python 3 script goes here...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QComboBox" name="comboBoxActionType">
+                <property name="currentText">
                  <string>Run a script</string>
                 </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Press keys</string>
+                <item>
+                 <property name="text">
+                  <string>Run a script</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Press keys</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
                 </property>
-               </item>
-              </widget>
-             </item>
-             <item row="4" column="2">
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="labelKeyCombination">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>Key combination:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QPushButton" name="buttonReset">
-               <property name="minimumSize">
-                <size>
-                 <width>128</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>128</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>Reset</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QPushButton" name="buttonKeyCombination">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>[None]</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0" colspan="3">
-              <widget class="QLabel" name="labelEditing">
-               <property name="styleSheet">
-                <string notr="true">font: 16pt &quot;Noto Sans&quot;;</string>
-               </property>
-               <property name="text">
-                <string>Editing pin D4:</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::AutoText</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="labelActOn">
-               <property name="text">
-                <string>Act on:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="2">
-              <widget class="QPushButton" name="buttonApply">
-               <property name="minimumSize">
-                <size>
-                 <width>128</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>128</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::RightToLeft</enum>
-               </property>
-               <property name="text">
-                <string>Apply</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="0">
-              <widget class="QPushButton" name="buttonHelp">
-               <property name="minimumSize">
-                <size>
-                 <width>128</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>128</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::RightToLeft</enum>
-               </property>
-               <property name="text">
-                <string>Scripting help</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="comboBoxActon">
-               <property name="minimumSize">
-                <size>
-                 <width>256</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>256</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Any state change</string>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
                 </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>LOW to HIGH</string>
+               </spacer>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="labelKeyCombination">
+                <property name="enabled">
+                 <bool>false</bool>
                 </property>
-               </item>
-               <item>
                 <property name="text">
-                 <string>HIGH to LOW</string>
+                 <string>Key combination:</string>
                 </property>
-               </item>
-              </widget>
-             </item>
-             <item row="6" column="0" colspan="3">
-              <widget class="QLabel" name="labelState">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#909090;&quot;&gt;Everything's dandy!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::RichText</enum>
-               </property>
-              </widget>
-             </item>
-            </layout>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QPushButton" name="buttonReset">
+                <property name="minimumSize">
+                 <size>
+                  <width>128</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>128</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Reset</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QPushButton" name="buttonKeyCombination">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>[None]</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="3">
+               <widget class="QLabel" name="labelEditing">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Noto Sans&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Editing pin D4:</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::AutoText</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="labelActOn">
+                <property name="text">
+                 <string>Act on:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QPushButton" name="buttonApply">
+                <property name="minimumSize">
+                 <size>
+                  <width>128</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>128</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QPushButton" name="buttonHelp">
+                <property name="minimumSize">
+                 <size>
+                  <width>128</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>128</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Scripting help</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="comboBoxActon">
+                <property name="minimumSize">
+                 <size>
+                  <width>256</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>256</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Any state change</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>LOW to HIGH</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>HIGH to LOW</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="6" column="0" colspan="3">
+               <widget class="QLabel" name="labelState">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#909090;&quot;&gt;Everything's dandy!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::RichText</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -490,8 +495,8 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>949</width>
-     <height>27</height>
+     <width>872</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

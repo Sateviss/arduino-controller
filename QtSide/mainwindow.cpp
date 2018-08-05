@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "portreader.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,10 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     auto pinList = ui->frameSelection->findChildren<PinButton *>();
     for (auto pin : pinList)
     {
-        pin->Init(ui->textBrowser);
+        pin->Init(ui->textBrowser, this);
         reader->connectPin(pin, pin->getPinNumber());
 
     }
+    unsavedChanges = true;
 }
 
 MainWindow::~MainWindow()
@@ -57,4 +59,18 @@ void MainWindow::on_actionPort_hovered()
     }
 
     ui->actionPort->setMenu(newMenu);
+}
+
+void MainWindow::pinSelected(PinButton *pin)
+{
+    if (unsavedChanges)
+    {
+        int w = QMessageBox::warning(
+                    this,
+                    tr("Before selecting another button..."),
+                    tr("There are unsaved changes"),
+                    QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel,
+                    QMessageBox::Save);
+        ui->textBrowser->append(QString::number(w));
+    }
 }

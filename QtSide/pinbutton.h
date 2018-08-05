@@ -7,7 +7,10 @@
 #include <QString>
 #include <QTextEdit>
 #include <QProcess>
-#include <processrunner.h>
+#include <QMainWindow>
+#include <QMouseEvent>
+
+#include "processrunner.h"
 
 class PinButton : public QPushButton
 {
@@ -26,11 +29,12 @@ private:
     QList<QProcess*> _processPool;
 
     ProcessRunner *_terminalOutput;
+    QMainWindow *_window;
 
 public:
     
     PinButton(QWidget* parent);
-    void Init(ProcessRunner *textEdit);
+    void Init(ProcessRunner *textEdit, QMainWindow *window);
 
     QString getPinName();
 
@@ -47,6 +51,13 @@ public:
     void setActionTypeId(int actionTypeId);
 
     void newPinState(bool newState);
+
+    void mousePressEvent(QMouseEvent *e);
+
+signals:
+
+    void pinSelected(PinButton *pin);
+
 };
 
 #endif // PINBUTTON_H
