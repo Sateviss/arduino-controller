@@ -14,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     auto pinList = ui->frameSelection->findChildren<PinButton *>();
     for (auto pin : pinList)
     {
-        pin->Init(ui->textBrowser, this);
+        pin->Init(ui->textBrowser);
+        connect(pin, &PinButton::pinSelected, this, &MainWindow::pinSelected);
         reader->connectPin(pin, pin->getPinNumber());
 
     }

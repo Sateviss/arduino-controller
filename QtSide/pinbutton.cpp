@@ -1,8 +1,3 @@
-#include <QDebug>
-#include <QColor>
-#include <QFile>
-
-#include "mainwindow.h"
 #include "pinbutton.h"
 
 int PinButton::getPinNumber() { return _pinNumber; }
@@ -42,9 +37,8 @@ void PinButton::newPinState(bool newState)
     this->runScript();
 }
 
-void PinButton::Init(ProcessRunner *output, QMainWindow *window)
+void PinButton::Init(ProcessRunner *output)
 {
-    connect(this, &PinButton::pinSelected, (MainWindow*)window, &MainWindow::pinSelected);
     _terminalOutput = output;
     _pinName = this->objectName().mid(9);
     _pinNumber = _pinName.mid(1).toInt();

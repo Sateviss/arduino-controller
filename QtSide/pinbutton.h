@@ -1,20 +1,22 @@
 #ifndef PINBUTTON_H
 #define PINBUTTON_H
 
+#include <QDebug>
+#include <QColor>
+#include <QFile>
 #include <QObject>
 #include <QWidget>
 #include <QPushButton>
 #include <QString>
 #include <QTextEdit>
 #include <QProcess>
-#include <QMainWindow>
 #include <QMouseEvent>
 
 #include "processrunner.h"
 
 class PinButton : public QPushButton
 {
-    
+
 private:
     
     int _pinNumber;
@@ -29,12 +31,11 @@ private:
     QList<QProcess*> _processPool;
 
     ProcessRunner *_terminalOutput;
-    QMainWindow *_window;
 
 public:
     
     PinButton(QWidget* parent);
-    void Init(ProcessRunner *textEdit, QMainWindow *window);
+    void Init(ProcessRunner *textEdit);
 
     QString getPinName();
 
