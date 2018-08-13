@@ -8,8 +8,7 @@ void PinButton::setScript(const QString &script) {
     QFile file("/tmp/"+_pinName+".py");
     if (file.exists())
         file.remove();
-    if ( file.open(QIODevice::ReadWrite) )
-    {
+    if ( file.open(QIODevice::ReadWrite) ) {
         QTextStream stream( &file );
         stream << "#! ../venv/bin/python3\n\n" << _script << endl;
     }
@@ -32,24 +31,19 @@ QString PinButton::getPinName() { return _pinName; }
 
 PinButton::PinButton(QWidget* parent) : QPushButton (parent) {}
 
-void PinButton::newPinState(bool newState)
-{
+void PinButton::newPinState(bool newState) {
     this->runScript();
 }
 
-void PinButton::Init(ProcessRunner *output)
-{
+void PinButton::Init(ProcessRunner *output) {
     _terminalOutput = output;
     _pinName = this->objectName().mid(9);
     _pinNumber = _pinName.mid(1).toInt();
 }
 
-void PinButton::mousePressEvent(QMouseEvent *e)
-{
+void PinButton::mousePressEvent(QMouseEvent *e) {
     if (e->button() == Qt::MouseButton::LeftButton)
-    {
-        emit pinSelected(this);
-    }
+        emit pinGotSelected(this);
     QPushButton::mousePressEvent(e);
     e->accept();
 }

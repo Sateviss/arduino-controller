@@ -26,8 +26,7 @@ public:
 private slots:
     void on_actionPort_hovered();
 
-public slots:
-    void pinSelected(PinButton *pin);
+    void pinSelected(PinButton *pinName);
 
 private:
     Ui::MainWindow *ui;

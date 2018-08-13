@@ -17,6 +17,8 @@
 class PinButton : public QPushButton
 {
 
+    Q_OBJECT
+
 private:
     
     int _pinNumber;
@@ -57,7 +59,7 @@ public:
 
 signals:
 
-    void pinSelected(PinButton *pin);
+    void pinGotSelected(PinButton *pinName);
 
 };
 

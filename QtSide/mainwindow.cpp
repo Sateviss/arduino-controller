@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "portreader.h"
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     for (auto pin : pinList)
     {
         pin->Init(ui->textBrowser);
-        connect(pin, &PinButton::pinSelected, this, &MainWindow::pinSelected);
+        connect(pin, &PinButton::pinGotSelected,
+                this, &MainWindow::pinSelected);
         reader->connectPin(pin, pin->getPinNumber());
 
     }
@@ -62,7 +62,7 @@ void MainWindow::on_actionPort_hovered()
     ui->actionPort->setMenu(newMenu);
 }
 
-void MainWindow::pinSelected(PinButton *pin)
+void MainWindow::pinSelected(PinButton *pinName)
 {
     if (unsavedChanges)
     {
