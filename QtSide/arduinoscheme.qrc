@@ -1,6 +1,7 @@
 <RCC>
-    <qresource prefix="/new/images">
+    <qresource prefix="/images">
         <file>Resourses/nano_m.png</file>
         <file>Resourses/nano_h.png</file>
+        <file>icon.png</file>
     </qresource>
 </RCC>

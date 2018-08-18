@@ -56,15 +56,20 @@ DISTFILES +=
 RESOURCES += \
     arduinoscheme.qrc
 
-macx {
-    QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../PySide/OSX/venv $${OUT_PWD};)
+unix {
+    QMAKE_POST_LINK += $$quote(python3 -m venv $${OUT_PWD}/venv;)
 }
 
-linux-g++ {
-    QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../PySide/Linux/venv $${OUT_PWD};)
+macx {
+    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install pyobjc-core pyobjc pyautogui;)
+}
+
+linux {
+    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install python3-xlib pyautogui wheel;)
 }
 
 win32 {
-    QMAKE_POST_LINK += $$quote(xcopy /s /e /c /h /k /y $${PWD}/../PySide/Win32/venv $${OUT_PWD})
+    QMAKE_POST_LINK += $$quote(c:\Python37\python -m venv $${OUT_PWD}/venv;)
+    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install pyautogui;)
 }
 
