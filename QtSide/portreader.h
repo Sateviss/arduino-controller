@@ -15,34 +15,40 @@ class WorkerThread : public QThread
 {
     Q_OBJECT
     QSerialPort* _port;
+    bool running;
 
     void run() override {
-        _port->open(QIODevice::ReadOnly);
-
         // Start a loop that reads all incoming communication
-        while (true) {
-            while (_port->waitForReadyRead(5000))
-            {
+        while (running)
+            while (_port->waitForReadyRead(100)) {
                 auto lines = QString::fromLocal8Bit(_port->readAll().data()).split("\n");
                 // Log
-
                 qDebug()<<lines;
                 for (auto line : lines)
                     if (line.length())
                         emit signalRecieved(line[0].unicode()-'A', line[1].unicode()-'0');
-            }
         }
     }
 
-public:
-    WorkerThread(QString port_name, int rate)
-    {
+public:    
+    WorkerThread(QString& port_name, int rate) {
         _port = new QSerialPort(port_name);
         _port->setBaudRate(rate);
+        _port->open(QIODevice::ReadOnly);
+        while (_port->waitForReadyRead(100));
+        _port->readAll();
     }
 
 signals:
     void signalRecieved(int pin, bool state);
+
+public slots:
+    void kill(){
+        running = false;
+        _port->close();
+        _port->deleteLater();
+        this->exit();
+    }
 };
 
 
@@ -55,16 +61,16 @@ private:
     WorkerThread* _worker;
 
 public:
-    PortReader(QString portName="auto", int portRate=9600);
+    PortReader(QString& portName, int portRate=9600);
     ~PortReader();
     static QList<QString> getPorts();
     void connectPin(PinButton* pin, int number);
 
 signals:
+    void killWorker();
 
 public slots:
     void pinStageChanged(int button, bool newState);
-
 };
 
 #endif // PORTREADER_H

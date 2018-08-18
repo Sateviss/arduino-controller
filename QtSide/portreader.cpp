@@ -1,17 +1,16 @@
 #include "portreader.h"
 
-PortReader::PortReader(QString portName, int portRate)
-{
-    if (portName == "auto")
+PortReader::PortReader(QString& portName, int portRate) {
+    if (portName == "")
         portName = PortReader::getPorts()[0];
 
     WorkerThread* _worker = new WorkerThread(portName, portRate);
     connect(_worker, &WorkerThread::signalRecieved, this, &PortReader::pinStageChanged);
+    connect(this, &PortReader::killWorker, _worker, &WorkerThread::kill);
     _worker->start();
 }
 
-QList<QString> PortReader::getPorts()
-{
+QList<QString> PortReader::getPorts() {
     auto ports = QSerialPortInfo::availablePorts();
     QList<QString> names;
     for (auto port : ports)
@@ -19,15 +18,13 @@ QList<QString> PortReader::getPorts()
     return names;
 }
 
-PortReader::~PortReader()
-{
-    _worker->exit();
-    _worker->deleteLater();
+PortReader::~PortReader() {
+    emit killWorker();
 }
 
-void PortReader::pinStageChanged(int pin, bool newState)
-{
-    _pinLookup[pin]->newPinState(newState);
+void PortReader::pinStageChanged(int pin, bool newState) {
+    if (_pinLookup.keys().contains(pin))
+        _pinLookup[pin]->newPinState(newState);
 }
 
 void PortReader::connectPin(PinButton* pin, int pinNumber)

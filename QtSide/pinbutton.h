@@ -28,7 +28,7 @@ private:
 
     QString _pinName;
     QString _script;
-    QKeySequence _sequence;
+    QString _sequence;
 
     QList<QProcess*> _processPool;
 
@@ -57,9 +57,12 @@ public:
 
     void mousePressEvent(QMouseEvent *e);
 
+    QString getSequence() const;
+    void setSequence(const QString &sequence);
+
 signals:
 
-    void pinGotSelected(PinButton *pinName);
+    void pinGotSelected(PinButton *pin);
 
 };
 

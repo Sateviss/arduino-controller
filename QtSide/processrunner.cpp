@@ -2,31 +2,25 @@
 
 ProcessRunner::ProcessRunner(QWidget *parent) : QTextBrowser (parent)
 {
-    _mutex = new QMutex();
-    _processPool = new QList<QProcess*>();
-    _monitor = new StdoutMonitor(this, _processPool, _mutex);
+    setTextColor(Qt::gray);
+    _monitor = new StdoutMonitor(this);
+    connect(this, &ProcessRunner::addCommandToSlave, _monitor, &StdoutMonitor::addProcess);
+    connect(_monitor, &StdoutMonitor::outputText, this, &ProcessRunner::addText);
     _monitor->start();
 }
 
-ProcessRunner::~ProcessRunner()
-{
+ProcessRunner::~ProcessRunner() {
     _monitor->exit();
     _monitor->deleteLater();
-    while (_processPool->length())
-    {
-        _processPool->removeFirst();
-    }
-
 }
 
-void ProcessRunner::runCommand(QString command, QStringList args)
-{
-    auto newProcess = new QProcess();
-    newProcess->setProgram(command);
-    newProcess->setArguments(args);
-    newProcess->start();
-    _mutex->lock();
-    _processPool->append(newProcess);
-    _mutex->unlock();
+void ProcessRunner::runCommand(QString command, QStringList args) {
+    emit addCommandToSlave(command, args);
 }
 
+void ProcessRunner::addText(QColor color, QString text) {
+    auto p_color = textColor();
+    setTextColor(color);
+    append(text);
+    setTextColor(p_color);
+}

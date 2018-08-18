@@ -1,5 +1,5 @@
 // delay between polls
-#define DELAY 1000
+#define DELAY 2000
 
 // blink length
 #define BLINK_T 20000

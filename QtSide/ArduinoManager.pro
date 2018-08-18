@@ -32,16 +32,19 @@ SOURCES += \
         mainwindow.cpp \
     pinbutton.cpp \
     portreader.cpp \
-    processrunner.cpp
+    processrunner.cpp \
+    addkeydialog.cpp
 
 HEADERS += \
         mainwindow.h \
     pinbutton.h \
     portreader.h \
-    processrunner.h
+    processrunner.h \
+    addkeydialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    addkeydialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -53,4 +56,15 @@ DISTFILES +=
 RESOURCES += \
     arduinoscheme.qrc
 
-QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../venv $${OUT_PWD})
+macx {
+    QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../PySide/OSX/venv $${OUT_PWD};)
+}
+
+linux-g++ {
+    QMAKE_POST_LINK += $$quote(cp -rf $${PWD}/../PySide/Linux/venv $${OUT_PWD};)
+}
+
+win32 {
+    QMAKE_POST_LINK += $$quote(xcopy /s /e /c /h /k /y $${PWD}/../PySide/Win32/venv $${OUT_PWD})
+}
+
