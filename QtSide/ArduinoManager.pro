@@ -4,10 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT += core gui widgets
 
 QT += serialport
-
 
 TARGET = ArduinoManager
 TEMPLATE = app
@@ -24,8 +23,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 CONFIG += c++17
-CONFIG += sanitizer sanitize_address
-LSAN_OPTIONS=verbosity=1:log_threads=1
+
+CONFIG+= static
 
 SOURCES += \
         main.cpp \
@@ -46,13 +45,6 @@ FORMS += \
         mainwindow.ui \
     addkeydialog.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
-DISTFILES +=
-
 RESOURCES += \
     arduinoscheme.qrc
 
@@ -61,15 +53,20 @@ unix {
 }
 
 macx {
-    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install pyobjc-core pyobjc pyautogui;)
+    QMAKE_POST_LINK += $$quote($${OUT_PWD}/venv/bin/pip3 install pyobjc-core pyobjc pyautogui;)
 }
 
 linux {
-    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install python3-xlib pyautogui wheel;)
+    QMAKE_POST_LINK += $$quote($${OUT_PWD}/venv/bin/pip3 install python3-xlib pyautogui wheel;)
 }
 
 win32 {
-    QMAKE_POST_LINK += $$quote(c:\Python37\python -m venv $${OUT_PWD}/venv;)
-    QMAKE_POST_LINK += $$quote( $${OUT_PWD}/venv/bin/pip3 install pyautogui;)
+    QMAKE_POST_LINK += \"C:\Program Files\Python36\python\" -m venv \"$${OUT_PWD}/venv\" &&
+    QMAKE_POST_LINK += \"$${OUT_PWD}/venv/scripts/pip3.exe\" install pyautogui
 }
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
 

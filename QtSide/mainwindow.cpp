@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     if (QSysInfo::kernelType() == "darwin") {
-        ui->menuFile->setAsDockMenu();
+//        ui->menuFile->setAsDockMenu();
     }
     // Read and initialize all pin buttons
     auto pinList = ui->frameSelection->findChildren<PinButton *>();

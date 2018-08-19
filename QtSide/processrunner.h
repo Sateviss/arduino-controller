@@ -21,12 +21,12 @@ class StdoutMonitor : public QThread {
             _mutex->lock();
             for (auto i = 0; i < _processPool->length();) {
                 auto process = _processPool->at(i++);
-                auto stdout = process->readAllStandardOutput();
-                auto stderr = process->readAllStandardError();
-                if (stdout.length())
-                    emit outputText(Qt::gray, QString::fromUtf8(stdout.mid(0, stdout.length()-1)));
-                if (stderr.length())
-                    emit outputText(Qt::red, QString::fromUtf8(stderr.mid(0, stderr.length()-1)));
+                QByteArray std_out = process->readAllStandardOutput();
+                QByteArray std_err = process->readAllStandardError();
+                if (std_out.length())
+                    emit outputText(Qt::gray, QString::fromUtf8(std_out.mid(0, std_out.length()-1)));
+                if (std_err.length())
+                    emit outputText(Qt::red, QString::fromUtf8(std_err.mid(0, std_err.length()-1)));
                 if (process->state() == QProcess::NotRunning)
                     _processPool->removeAt(--i);
             }
@@ -45,7 +45,7 @@ public:
 public slots:
     void addProcess(QString command, QStringList args){
         _mutex->lock();
-        emit outputText(Qt::yellow, command+" "+args.join(" "));
+        emit outputText(Qt::darkYellow, command+" "+args.join(" "));
         auto newProcess = new QProcess(this);
         newProcess->start(command, args);
         _processPool->append(newProcess);

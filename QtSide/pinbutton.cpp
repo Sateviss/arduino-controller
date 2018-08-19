@@ -1,5 +1,7 @@
 #include "pinbutton.h"
 
+#include <QSysInfo>
+
 int PinButton::getPinNumber() { return _pinNumber; }
 
 void PinButton::setScript(const QString &script) {
@@ -18,7 +20,7 @@ QString PinButton::getScript() const { return _script; }
 
 void PinButton::runScript()
 {
-    _terminalOutput->runCommand("./venv/bin/python3", QStringList() << "./tmp/"+_pinName+".py");
+    _terminalOutput->runCommand(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3", QStringList() << "./tmp/"+_pinName+".py");
 }
 
 int PinButton::getActOnId() const { return _actOnId; }
