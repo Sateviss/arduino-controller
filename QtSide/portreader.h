@@ -36,7 +36,7 @@ public:
         _port->setBaudRate(rate);
         _port->open(QIODevice::ReadOnly);
         while (_port->waitForReadyRead(100));
-        _port->readAll();
+        _port->flush();
     }
 
 signals:

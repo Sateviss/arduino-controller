@@ -15,6 +15,7 @@ class StdoutMonitor : public QThread {
     QList<QProcess*> *_processPool;
     QTextBrowser *_output;
     QMutex *_mutex;
+    QProcess* _interpeter;
 
     void run() override {
         while (true) {
@@ -37,9 +38,15 @@ class StdoutMonitor : public QThread {
 
 public:
     StdoutMonitor(QTextBrowser *outputBrowser) {
+        _interpeter = new QProcess();
+        _interpeter->start(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3");
+        _interpeter->open();
+        _interpeter->write("# -*- coding: utf-8 -*-");
+        _interpeter->write("import pyautogui");
         _output = outputBrowser;
         _mutex = new QMutex();
         _processPool = new QList<QProcess*>();
+        _processPool->append(_interpeter);
     }
 
 public slots:
@@ -50,6 +57,11 @@ public slots:
         newProcess->start(command, args);
         _processPool->append(newProcess);
         _mutex->unlock();
+    }
+
+    void runInInterpreter(QString script) {
+        emit outputText(Qt::darkYellow, script);
+        _interpeter->write(script.toUtf8());
     }
 
 signals:
@@ -70,8 +82,10 @@ public:
     ~ProcessRunner();
     void runCommand(QString command, QStringList args);
 
+    void runInterpeter(QString script);
 signals:
     void addCommandToSlave(QString command, QStringList args);
+    void runInSlaveInterpreter(QString script);
 
 public slots:
     void addText(QColor textColor, QString text);

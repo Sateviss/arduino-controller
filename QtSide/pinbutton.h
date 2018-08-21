@@ -29,6 +29,7 @@ private:
     QString _pinName;
     QString _script;
     QString _sequence;
+    bool _useGlobalInt;
 
     QList<QProcess*> _processPool;
 
@@ -59,6 +60,9 @@ public:
 
     QString getSequence() const;
     void setSequence(const QString &sequence);
+
+    bool getUseGlobalInt() const;
+    void setUseGlobalInt(bool useGlobalInt);
 
 signals:
 

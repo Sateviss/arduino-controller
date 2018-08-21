@@ -109,6 +109,7 @@ void MainWindow::saveChanges() {
     selectedPin->setActionTypeId(ui->comboBoxActionType->currentIndex());
     selectedPin->setScript(ui->editScript->toPlainText());
     selectedPin->setSequence(ui->buttonKeyCombination->text());
+    selectedPin->setUseGlobalInt(ui->comboBoxInterpreter->currentIndex());
     dumpPinConfig();
 }
 
@@ -121,6 +122,7 @@ void MainWindow::loadPin(PinButton* newPin) {
     ui->comboBoxActionType->setCurrentIndex(selectedPin->getActionTypeId());
     ui->buttonKeyCombination->setText(selectedPin->getSequence());
     ui->editScript->setText(selectedPin->getScript());
+    ui->comboBoxInterpreter->setCurrentIndex(selectedPin->getUseGlobalInt());
     settings->setValue("lastPin", selectedPin->objectName());
 }
 
@@ -135,7 +137,8 @@ void MainWindow::checkUnsavedChanges() {
             (ui->comboBoxActon->currentIndex() != selectedPin->getActOnId() ||
             ui->comboBoxActionType->currentIndex() != selectedPin->getActionTypeId() ||
             ui->buttonKeyCombination->text() != selectedPin->getSequence() ||
-            ui->editScript->toPlainText() != selectedPin->getScript());
+            ui->editScript->toPlainText() != selectedPin->getScript() ||
+            ui->comboBoxInterpreter->currentIndex() != selectedPin->getUseGlobalInt());
     if (unsavedChanges) {
         ui->labelState->setStyleSheet("color: red");
         ui->labelState->setText("There are unsaved changes");
@@ -167,8 +170,10 @@ void MainWindow::on_buttonApply_clicked() {
 
 void MainWindow::on_comboBoxActionType_currentIndexChanged(int index) {
     ui->editScript->setEnabled(!index);
+    ui->comboBoxInterpreter->setEnabled(!index);
     ui->buttonKeyCombination->setEnabled(index);
 
+    ui->comboBoxInterpreter->setCurrentIndex(index?true:selectedPin->getUseGlobalInt());
     checkUnsavedChanges();
 }
 
@@ -264,6 +269,7 @@ void MainWindow::on_actionSave_triggered() {
         pinJson["action_type"] = pin->getActionTypeId();
         pinJson["script"] = pin->getScript();
         pinJson["sequence"] = pin->getSequence();
+        pinJson["globalInt"] = pin->getUseGlobalInt();
         arrayJson.append(pinJson);
     }
 
@@ -320,6 +326,7 @@ void MainWindow::on_actionLoad_triggered() {
         pin->setActionTypeId(pinJson["action_type"].toInt());
         pin->setScript(pinJson["script"].toString());
         pin->setSequence(pinJson["sequence"].toString());
+        pin->setUseGlobalInt(pinJson["globalInt"].toBool());
     }
     if (selectedPin != nullptr)
         loadPin(selectedPin);
@@ -413,6 +420,7 @@ void MainWindow::dumpPinConfig() {
         pinJson["action_type"] = pin->getActionTypeId();
         pinJson["script"] = pin->getScript();
         pinJson["sequence"] = pin->getSequence();
+        pinJson["globalInt"] = pin->getUseGlobalInt();
         arrayJson.append(pinJson);
     }
     QJsonObject obj;
@@ -431,9 +439,14 @@ void MainWindow::loadPinConfig() {
         pin->setActionTypeId(pinJson["action_type"].toInt());
         pin->setScript(pinJson["script"].toString());
         pin->setSequence(pinJson["sequence"].toString());
+        pin->setUseGlobalInt(pinJson["globalInt"].toBool());
     }
 }
 
 void MainWindow::on_actionOpen_PyAutoGUI_help_triggered() {
     QDesktopServices::openUrl(QUrl("https://pyautogui.readthedocs.io/en/latest/"));
+}
+
+void MainWindow::on_comboBoxInterpreter_currentIndexChanged(int index) {
+    checkUnsavedChanges();
 }

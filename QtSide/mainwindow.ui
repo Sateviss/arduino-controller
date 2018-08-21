@@ -498,7 +498,7 @@ p, li { white-space: pre-wrap; }
                   <widget class="QComboBox" name="comboBoxActon">
                    <property name="minimumSize">
                     <size>
-                     <width>170</width>
+                     <width>180</width>
                      <height>0</height>
                     </size>
                    </property>
@@ -599,6 +599,30 @@ p, li { white-space: pre-wrap; }
                    </property>
                    <property name="text">
                     <string>Key combination:</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QComboBox" name="comboBoxInterpreter">
+                   <item>
+                    <property name="text">
+                     <string>separate interpreter</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>global interpreter</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="labelInterpreter">
+                   <property name="text">
+                    <string>Run script in:</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

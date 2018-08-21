@@ -20,7 +20,10 @@ QString PinButton::getScript() const { return _script; }
 
 void PinButton::runScript()
 {
-    _terminalOutput->runCommand(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3", QStringList() << "./tmp/"+_pinName+".py");
+    if (_useGlobalInt)
+        _terminalOutput->runInterpeter(getScript());
+    else
+        _terminalOutput->runCommand(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3", QStringList() << "./tmp/"+_pinName+".py");
 }
 
 int PinButton::getActOnId() const { return _actOnId; }
@@ -39,6 +42,16 @@ QString PinButton::getSequence() const {
 
 void PinButton::setSequence(const QString &sequence) {
     _sequence = sequence;
+}
+
+bool PinButton::getUseGlobalInt() const
+{
+    return _useGlobalInt;
+}
+
+void PinButton::setUseGlobalInt(bool useGlobalInt)
+{
+    _useGlobalInt = useGlobalInt;
 }
 
 PinButton::PinButton(QWidget* parent) : QPushButton (parent) {

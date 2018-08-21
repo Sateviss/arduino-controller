@@ -122,6 +122,8 @@ private slots:
 
     void on_actionOpen_PyAutoGUI_help_triggered();
     
+    void on_comboBoxInterpreter_currentIndexChanged(int index);
+
 public slots:
     void setPort(QString portName);
 
