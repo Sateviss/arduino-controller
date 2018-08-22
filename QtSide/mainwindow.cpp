@@ -365,8 +365,6 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
     }
     event->accept();
     awaitKeyPress = false;
-    ui->editScript->setPlainText("import pyautogui\n");
-    auto text = ui->editScript->toPlainText();
 
     for (int i = 0; i < keys.length(); i++)
         ui->editScript->append(tr("pyautogui.keyDown('%1')").arg((*keyConfig)[keys[i]].toObject()["pyname"].toString()));
