@@ -24,7 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++17
 
-CONFIG+= static
 
 SOURCES += \
         main.cpp \

@@ -6,6 +6,7 @@
 #include <QProcess>
 #include <QThread>
 #include <QMutex>
+#include <QDir>
 
 #include <exception>
 
@@ -23,7 +24,8 @@ class StdoutMonitor : public QThread {
             for (auto i = 0; i < _processPool->length();) {
                 auto process = _processPool->at(i++);
                 QByteArray std_out = process->readAllStandardOutput();
-                QByteArray std_err = process->readAllStandardError();
+                QByteArray std_err = process->readAllStandardError()
+                        .replace(">>> ", "");
                 if (std_out.length())
                     emit outputText(Qt::gray, QString::fromUtf8(std_out.mid(0, std_out.length()-1)));
                 if (std_err.length())
@@ -39,10 +41,13 @@ class StdoutMonitor : public QThread {
 public:
     StdoutMonitor(QTextBrowser *outputBrowser) {
         _interpeter = new QProcess();
-        _interpeter->start(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3");
-        _interpeter->open();
-        _interpeter->write("# -*- coding: utf-8 -*-");
-        _interpeter->write("import pyautogui");
+        _interpeter->setProgram(QSysInfo::kernelType() == "winnt"?"./venv/Scripts/python.exe":"./venv/bin/python3");
+        _interpeter->setArguments(QStringList()<<"-i"<<"-q");
+        _interpeter->setWorkingDirectory(QDir::currentPath());
+        _interpeter->start();
+        _interpeter->waitForStarted();
+        _interpeter->write("import pyautogui\n");
+
         _output = outputBrowser;
         _mutex = new QMutex();
         _processPool = new QList<QProcess*>();
@@ -52,7 +57,6 @@ public:
 public slots:
     void addProcess(QString command, QStringList args){
         _mutex->lock();
-        emit outputText(Qt::darkYellow, command+" "+args.join(" "));
         auto newProcess = new QProcess(this);
         newProcess->start(command, args);
         _processPool->append(newProcess);
@@ -60,8 +64,9 @@ public slots:
     }
 
     void runInInterpreter(QString script) {
-        emit outputText(Qt::darkYellow, script);
-        _interpeter->write(script.toUtf8());
+        if (script[script.length()-1] != "\n")
+            script+="\n";
+        _interpeter->write(script.toUtf8().data());
     }
 
 signals:

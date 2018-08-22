@@ -61,12 +61,14 @@ PinButton::PinButton(QWidget* parent) : QPushButton (parent) {
 }
 
 void PinButton::newPinState(bool newState) {
+    emit writePinInfo(Qt::darkBlue, tr("Pin %1 is now %2").arg(getPinName(), newState?"HIGH":"LOW"));
     if (getActOnId() == 0 || (getActOnId()-1 == newState))
         this->runScript();
 }
 
 void PinButton::Init(ProcessRunner *output) {
     _terminalOutput = output;
+    connect(this, &PinButton::writePinInfo, _terminalOutput, &ProcessRunner::addText);
     _pinName = this->objectName().mid(9);
     _pinNumber = _pinName.mid(1).toInt();
 }

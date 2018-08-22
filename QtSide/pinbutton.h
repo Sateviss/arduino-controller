@@ -66,6 +66,7 @@ public:
 
 signals:
 
+    void writePinInfo(QColor color, QString text);
     void pinGotSelected(PinButton *pin);
 
 };

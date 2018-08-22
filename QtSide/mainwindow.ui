@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Arduino Manager 1.1</string>
+   <string>Arduino Manager 1.2</string>
   </property>
   <property name="windowIcon">
    <iconset theme="/images/icon.png" resource="arduinoscheme.qrc">
@@ -671,7 +671,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>888</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
